@@ -15,7 +15,7 @@ contract NFTMarketplace is ERC721URIStorage {
     uint256 listingPrice = 0.025 ether; // NFT 게시 수수료
     address payable owner; // NFT 소유자
 
-    constructor() ERC721("Metaverse Tokens", "METT") {
+    constructor() ERC721("Moment Tokens", "MOTT") {
         // NFT이름 지정, 약어 지정
         owner = payable(msg.sender);
     }
