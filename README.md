@@ -10,6 +10,7 @@ NEXT_PUBLIC_PROJECT_ID:
 NEXT_PUBLIC_PROJECT_SECRET:
 
 ```
+npm install
 npx hardhat test // 스마트 컨트랙트 테스트
 npx hardhat node // localhost로 이더리움 테스트넷 구동
 npx hardhat deploy script/deploy.js --network // 테스트넷에 스마트컨트랙트 배포
