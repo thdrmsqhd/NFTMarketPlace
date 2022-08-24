@@ -136,7 +136,7 @@ contract NFTMarketplace is ERC721URIStorage {
         payable(seller).transfer(msg.value); // 판매자에게 금액 전송
     }
 
-    // NFT 마켓 아이템들을 모두 가젼온다.
+    // NFT 마켓 아이템들을 모두 가져온다.
     function fetchMarketItems() public view returns (MarketItem[] memory) {
         uint itemCount = _tokenIds.current(); // 현재 아이템 수량을 가져온다.
         uint unsoldItemCount = _tokenIds.current() - _itemSold.current(); // 현재 아이템 수량에서 판매된 아이템의 수량을 빼서 판매가 가능한 수량을 가져온다.
@@ -153,6 +153,15 @@ contract NFTMarketplace is ERC721URIStorage {
             }
         }
         return items;
+    }
+
+    // NFT 마켓 아이템을 하나 가져온다.
+    function fetchMarketItem(uint _tokenId)
+        public
+        view
+        returns (MarketItem memory)
+    {
+        return idToMarketItem[_tokenId];
     }
 
     // 함수를 호출한 사람의 NFT를 불러온다.

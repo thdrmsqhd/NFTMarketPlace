@@ -1,11 +1,13 @@
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 import Web3Modal from "web3modal";
 import { marketplaceAddress } from "../config";
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
 export default function Home() {
+  const router = useRouter();
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState("not-loaded");
   useEffect(() => {
@@ -48,14 +50,20 @@ export default function Home() {
     await transaction.wait();
     loadNFTs();
   }
-  if (loadingState === "loaded" && !nfts.length) return <h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>;
+  if (loadingState === "loaded" && !nfts.length) return <h1 className="px-20 py-10 text-3xl">게시된 아이템이 없습니다. 🙏</h1>;
   return (
     <div className="flex justify-center">
       <div className="px-4" style={{ maxWidth: "1600px" }}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {nfts.map((nft, i) => (
             <div key={i} className="border shadow rounded-xl overflow-hidden">
-              <img src={nft.image} />
+              <div
+                onClick={() => {
+                  router.push({ pathname: "/detail-item", query: { id: nft.tokenId } });
+                }}
+              >
+                <img src={nft.image} />
+              </div>
               <div className="p-4">
                 <p style={{ height: "64px" }} className="text-2xl font-semibold">
                   {nft.name}
@@ -66,7 +74,7 @@ export default function Home() {
               </div>
               <div className="p-4 bg-black">
                 <p className="text-2xl font-bold text-white">{nft.price} ETH</p>
-                <button className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded" onClick={() => buyNft(nft)}>
+                <button className="mt-4 w-full bg-amber-500 text-white font-bold py-2 px-12 rounded" onClick={() => buyNft(nft)}>
                   Buy
                 </button>
               </div>

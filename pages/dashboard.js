@@ -46,11 +46,11 @@ export default function CreatorDashboard() {
     setLoadingState("loaded");
   }
 
-  if (loadingState === "loaded" && !nfts.length) return <h1 className="py-10 px-20 text-3xl">No NFTs listed</h1>;
+  if (loadingState === "loaded" && !nfts.length) return <h1 className="py-10 px-20 text-3xl">냬가 판매중인 아이템이 없습니다.</h1>;
   return (
     <div>
       <div className="p-4">
-        <h2 className="text-2xl py-2">Items Listed</h2>
+        <h2 className="text-2xl py-2">판매중인 아이템을 살펴보세요</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {nfts.map((nft, i) => (
             <div key={i} className="border shadow rounded-xl overflow-hidden">
