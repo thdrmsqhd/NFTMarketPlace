@@ -1,7 +1,7 @@
 # Moment Market Place
 
 - 촬영된 사진, 이미지를 거래 할 수 있는 플랫폼
-  <img width="1536" src="https://first-ipfs-tutorial.infura-ipfs.io/ipfs/QmTYTh1D2S3EW1TARxMm1jdcF1yGLcfwHeKs4a7UU7DTo3">
+  <img width="1536" src="https://user-images.githubusercontent.com/63908729/209065081-ae1766de-ad60-4d9d-8c96-5c946fe322b5.gif">
 
 .env 설정필요
 
