@@ -1,6 +1,7 @@
 # Moment Market Place
 
 - 촬영된 사진, 이미지를 거래 할 수 있는 플랫폼
+  <img width="1536" src="https://user-images.githubusercontent.com/63908729/209060838-85518581-d038-446b-8849-d6aba244b350.gif">
 
 .env 설정필요
 
@@ -35,7 +36,7 @@ test - 스마트 컨트랙트 테스트 코드
 npm install
 npx hardhat test // 스마트 컨트랙트 테스트
 npx hardhat node // localhost로 이더리움 테스트넷 구동
-npx hardhat deploy script/deploy.js --network // 테스트넷에 스마트컨트랙트 배포
+npx hardhat run --network localhost scripts/deploy.js --network // 테스트넷에 스마트컨트랙트 배포
 npm run dev // Next 구동
 ```
 
